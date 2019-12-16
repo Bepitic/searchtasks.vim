@@ -55,4 +55,5 @@ if exists("grepadd") || v:version > 700
   command -nargs=1 SearchTasksGrep call s:SearchTasksGrep('<args>')
 endif
 command -nargs=1 SearchTasks call s:SearchTasks('<args>')
+command -nargs=0 TODO call s:TODO()
 " vim:set sw=2 sts=2:
