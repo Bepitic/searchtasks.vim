@@ -15,10 +15,8 @@ endif
 " Search tasks {{{
 function s:SearchTasks(directory)
   if a:directory
-    echo "I will use **/* as a directory"
-    for task in g:searchtasks_list
-      execute 'vimgrepadd /' . task . '/gj ' . '**/*'
-    endfor
+    echo "Directory is required (e.g: SearchTasks **/*.c)."
+    return ''
   endif
 
   for task in g:searchtasks_list
@@ -30,6 +28,12 @@ function s:SearchTasks(directory)
 endfunction
 " }}}
 
+function s:TODO()
+  for task in g:searchtasks_list
+    execute 'vimgrepadd /' . task . '/gj ' . '**/*'
+  endfor
+
+endfunction
 
 " Search tasks with :grep {{{
 function s:SearchTasksGrep(directory)
