@@ -28,7 +28,7 @@ function s:SearchTasks(directory)
 endfunction
 " }}}
 
-function s:TODO()
+function s:Todo()
   for task in g:searchtasks_list
     execute 'vimgrepadd /' . task . '/gj ' . '**/*'
   endfor
@@ -55,5 +55,6 @@ if exists("grepadd") || v:version > 700
   command -nargs=1 SearchTasksGrep call s:SearchTasksGrep('<args>')
 endif
 command -nargs=1 SearchTasks call s:SearchTasks('<args>')
-command -nargs=0 SearchTasks call s:TODO()
+command! ST call s:Todo()
+"
 " vim:set sw=2 sts=2:
